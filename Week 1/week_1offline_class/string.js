@@ -3,10 +3,6 @@ function getlength(str)
 {
     console.log(str.length);
 }
-<<<<<<< HEAD
-let a="hello world";
-getlength(a);
-=======
 let a="hello world world world";
 getlength(a);
 
@@ -44,4 +40,3 @@ splitstr(a," ")
 //a.trim() - remove extra space at the end or start
 console.log(a.toUpperCase())
 console.log(a.toLowerCase())
->>>>>>> master

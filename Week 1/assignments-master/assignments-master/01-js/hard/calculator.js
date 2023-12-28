@@ -31,7 +31,8 @@ class Calculator {
     this.result=this.result*num;
   }
   divide(num){
-    if(num ==0)
+    if (num == 0) 
+
     {
       throw new Error("num cannot be zero")
     }
@@ -45,9 +46,9 @@ class Calculator {
   {
     return this.result
   }
-  calculate()
+  calculate(input)
   {
-    return this.result
+    return this.result =eval(input)
   }
 
 }

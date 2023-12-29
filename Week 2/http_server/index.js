@@ -11,7 +11,7 @@ app.get('/',function(req,res){
     res.send("hello world")
 })
 app.listen(port)*/
-
+/*
 // adding query parameter
 function sum(n)
 {
@@ -28,3 +28,4 @@ app.get("/",function(req,res){
     res.send("Sum of "+n+"number is "+ans)
 })
 app.listen(port);
+*/

@@ -44,6 +44,74 @@
   
   const app = express();
   
-  app.use(bodyParser.json());
+  app.use(express.json());
+ let todo =[]
+  app.get("/todos",(req,res)=>{
+    res.status(200).json(todo)
+  })
+  app.get("/todos/:id",(req,res)=>{
+    let ID = req.params.id
+    let found =false
+    for (let i=0;i<todo.length;i++)
+    {
+      if(todo[i].ID==ID)
+      {
+        res.status(200).json(todo[i])
+        found=true
+        break
+      }
+      
+    }
+    if (!found)
+    {
+      res.status(404).json({msg:"not found"})
+    }
+  })
+  app.post("/todos",(req,res)=>{
+    let title = req.body.title
+    let description=req.body.description
+    //let description =req.body.description
+    let new_todo={
+      "ID":Date.now(),
+      title,
+      description
+    }
+    //console.log(new_todo)
+    todo.push(new_todo)
+    res.status(201).json({id:new_todo.ID})
+  })
+  app.put("/todos/:id",(req,res)=>{
+    let id =req.params.id
+    let title=req.body.title
+    let completed=req.body.completed
+    for(let i=0;i<todo.length;i++)
+    {
+        if (todo[i].ID == id)
+        {
+            todo[i].title=title
+            todo[i].completed=completed
+            res.status(200).json(todo)
+        }
+        else{
+            res.status(404).json({msg:"not found"})
+        }
+    }
+})
+app.delete("/todos/:id",(req,res)=>{
+  let id =req.params.id
+  for(let i=0;i<todo.length;i++)
+  {
+      if (todo[i].ID == id){
+          todo.splice(i,1)
+          res.status(200).json(todo)
+      }
+      else{
+          res.status(404).json({msg:"not found"})
+      }
+  }
+  
+})
+
+
   
   module.exports = app;

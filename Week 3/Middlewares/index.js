@@ -64,7 +64,15 @@ function idcheck(req,res,next){
         res.status(400).json({msg:"Not ok"})
     }
 }
+let count =0
+
 app.get("/chekup",authcheck,idcheck,function(req,res){
-    res.json({meg:"success"})
+    let start=Date.now()
+    count+=1
+    res.json({meg:"success","count":count})
+    let end =Date.now()
+    console.log(end-start)
 })
+
+
 app.listen(3000)

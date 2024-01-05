@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <div id ="container"></div>
+        <script>
+            function getAnimalData(){
+                //we can write this using await also
+                const response = fetch("https://fakerapi.it/api/v1/persons").then(
+                    function(response){
+                        response.json().then(
+                            function(finaldata){
+                                //this will show all the data on page 
+                               document.getElementById("container").innerHTML = JSON.stringify(finaldata.data)
+                            }
+                        )
+                    }
+                )
+               
+            }
+        </script>
+        <button onclick="getAnimalData()">get animal data</button>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <script>
+        function done(){
+            element=document.getElementById("child")
+            element.children[2].innerHTML="Done"
+            
+        }
+        function add()
+        {
+            const element =document.getElementById("add todo")
+            const t=document.getElementById("title").value
+            const discription =document.getElementById("disc").value
+            
+            const outerdiv = document.createElement("div")
+            outerdiv.setAttribute("id","child")
+            const first =document.createElement("div")
+            first.innerHTML=t
+           const sec = document.createElement("div")
+           sec.innerHTML=discription
+           const bt= document.createElement("button")
+           bt.innerHTML="Mark as done"
+            outerdiv.appendChild(first)
+            outerdiv.appendChild(sec)
+            outerdiv.appendChild(bt)
+            element.appendChild(outerdiv)
+            
+            bt.setAttribute("id","done")
+            //bt.setAttribute("onclick",done())
+            //element.innerHTML=outerdiv
+
+        }
+    </script>
+    <body>
+        <input id="title" type="text" placeholder="title">
+        <br></br>
+        <input id="disc" type="text" placeholder="discription">
+        <br></br>
+        <button onclick="add()">Add todo</button>
+        <div id="add todo"></div>
+  <!-- <div>
+            <div >"title"</div>
+            <div>"disc"</div>
+            <button>mark as done</button>
+        </div> -->
+        
+    </body>
+</html>

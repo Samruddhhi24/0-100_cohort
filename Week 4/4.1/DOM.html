@@ -23,7 +23,7 @@
     </body>
 </html> -->
 <!-- using backend server for sun -->
-<html>
+<!-- <html>
     <body>
         <script>
             function sum()
@@ -50,5 +50,39 @@
         <button onclick="sum()">calculate sum</button>
         <br></br>
         <div id="finalSum"></div>
+    </body>
+</html> -->
+
+<!-- code for interest calculate -->
+<html>
+    <script>
+        function cal(){
+            const element =document.getElementById("interest")
+        const rate =document.getElementById("rate").value
+        const p=document.getElementById("principal").value
+        const time =document.getElementById("time").value
+         fetch("https://sum-server.100xdevs.com/interest?principal="+p+"&rate="+rate+"&time="+time).then(function(resp)
+         {
+            resp.text().then(function(res){
+                element.innerHTML=res;
+            })
+         })
+        
+        
+        }
+        
+    </script>
+    <body>
+        <!-- https://sum-server.100xdevs.com/interest?principal=100&rate=5&time=2 -->
+        <input id="principal" type="text" placeholder="principal">
+        <br></br>
+        <input id="rate" type="text" placeholder="rate">
+        <br></br>
+        <input id="time" type="text" placeholder="time">
+        <br></br>
+        <button onclick="cal()">calculate interest</button>
+        <br></br>
+        <div id ="interest"></div>
+
     </body>
 </html>

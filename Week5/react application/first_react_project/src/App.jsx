@@ -4,15 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
+  const [count,inc]=useState(0)
+  function onclickListner(){
+    inc(count+1)
+  }
   return (
     
       <div>
        
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={onclickListner}>counter {count}</button>
        
       </div>)
       

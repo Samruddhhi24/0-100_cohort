@@ -1,0 +1,26 @@
+<html>
+    <div id="buttonparent"> </div>
+    <script>
+        let state={
+            count :0
+        }
+        function buttonpress(){
+            state.count++
+            buttonComponentrerender()
+        }
+        function buttonComponentrerender()
+        {
+            document.getElementById("buttonparent").innerHTML=""
+            const component=buttonComponent(state.count)
+            document.getElementById("buttonparent").appendChild(component)
+        }
+        function buttonComponent(count){
+            const button=document.createElement("button")
+            button.innerHTML='counter'+count
+            button.setAttribute("onclick",`buttonpress()`)
+            return button;
+        }
+        buttonComponentrerender()
+    </script>
+
+</html>

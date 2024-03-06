@@ -1,48 +1,23 @@
 import { useState } from "react"
 
-let count=4;
+
 function App() {
-
- 
-
-  const [todos, setTodos] = useState([{
-    id:1,
-    title: "Go to gym",
-    description: "Need to hit the gym from 7-9PM"
-  }, {
-    id:2,
-    title: "Go to Clas",
-    description: "Need to go to the class from 4-7 PM"
-  }, {
-    id:3,
-    title: "Eat foor",
-    description: "Need to eat food from 2-4 PM"
-  }])
-  function addTodo(){
-    setTodos([...todos,{
-      id:count++,
-      title:"new Todo",
-      description:"This is new todo"
-    }])
-  }
-  return (
-    <div>
-      <button onClick={addTodo}> Add a Todo</button>
-      {todos.map(todo => <Todo key={todo.id} title={todo.title} description={todo.description} />)}
+    return <div >
+         <CardWrapper innercomponent={<Textcomponent/>} />
     </div>
-  )
+   
 }
-
-function Todo({title, description}) {
-  return <div>
-    <h1>
-      {title}
-    </h1>
-    <h4>
-      {description}
-    </h4>
+function CardWrapper({innercomponent}){
+  return <div style={{border : "2px solid black"}}>
+    {innercomponent}
   </div>
 }
+function Textcomponent(){
+    return <div>
+        hi there 
+    </div>
+}
+
 
 
 

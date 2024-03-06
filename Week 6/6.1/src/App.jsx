@@ -1,21 +1,18 @@
-import { useState } from "react"
+import { Children, useState } from "react"
 
 
 function App() {
     return <div >
-         <CardWrapper innercomponent={<Textcomponent/>} />
+         <CardWrapper >
+            hi there 
+         </CardWrapper>
     </div>
    
 }
-function CardWrapper({innercomponent}){
+function CardWrapper({children}){
   return <div style={{border : "2px solid black"}}>
-    {innercomponent}
+    {children}
   </div>
-}
-function Textcomponent(){
-    return <div>
-        hi there 
-    </div>
 }
 
 

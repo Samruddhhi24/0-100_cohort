@@ -1,32 +1,34 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [todos, setTodos] = useState([])
+  
+  const[inputvalue, setinput]=useState(1)
+  const [counter ,setcounter]=useState(0)
+  let count=useMemo(()=>{
+    let count=0
+    for (let i=1;i<=inputvalue;i++)
+    {
+      count =count+i 
+    }
+    return count
+  },[inputvalue])
 
-  useEffect(() => {
-    fetch("https://sum-server.100xdevs.com/todos")
-      .then(async function(res) {
-        const json = await res.json();
-        setTodos(json.todos);
-      })
-  }, [])
-
+  
   return <div>
-    {todos.map(todo => <Todo key={todo.id} title={todo.title} description={todo.description} />)}
-  </div>
-}
-
-function Todo({title, description}) {
-  return <div>
-    <h1>
-      {title}
-    </h1>
-    <h4>
-      {description}
-    </h4>
+   
+   <input onChange={function(e){
+    setinput(e.target.value)
+   }} placeholder={'Find the sum '}></input>
+   <br />
+   sum from 1 to {inputvalue} is {count}
+   <br />
+    <button onClick={function(){
+      setcounter(counter +1)
+    }}>Counter  {counter}</button>
+    
   </div>
 }
 

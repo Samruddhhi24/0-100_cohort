@@ -10,13 +10,19 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
+    <div>
+<div>
+      Hi there this is top bar
+    </div>
     <BrowserRouter>
 <Routes>
   <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
   <Route path="/" element={<Landing></Landing>}></Route>
 </Routes>
     
-    </BrowserRouter>  )
+    </BrowserRouter> 
+    </div>
+     )
 }
 
 export default App

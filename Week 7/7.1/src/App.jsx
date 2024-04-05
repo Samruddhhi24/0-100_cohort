@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import{BrowserRouter,Routes, Route}from 'react-router-dom'
+import{BrowserRouter,Routes, Route, useNavigate}from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -11,18 +11,30 @@ function App() {
 
   return (
     <div>
-<div>
-      Hi there this is top bar
-    </div>
+  
     <BrowserRouter>
-<Routes>
-  <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
-  <Route path="/" element={<Landing></Landing>}></Route>
-</Routes>
+    <Appbar></Appbar>
+    <Routes>
+      <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+      <Route path="/" element={<Landing></Landing>}></Route>
+    </Routes>
     
     </BrowserRouter> 
     </div>
      )
+}
+function Appbar(){
+  const navigate=useNavigate()
+  return(
+    <div>
+      <button onClick={function(){
+        navigate("/")
+      }}>Landing</button>
+      <button onClick={function(){
+        navigate("/dashboard")
+      }}>Dashboard</button>
+    </div>
+  )
 }
 
 export default App

@@ -11,30 +11,29 @@ function App() {
 
   return (
     <div>
-  
-    <BrowserRouter>
-    <Appbar></Appbar>
-    <Routes>
-      <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
-      <Route path="/" element={<Landing></Landing>}></Route>
-    </Routes>
+      <Count count={count} setCount={setCount}/>
+     
     
-    </BrowserRouter> 
     </div>
      )
+    
 }
-function Appbar(){
-  const navigate=useNavigate()
-  return(
-    <div>
-      <button onClick={function(){
-        navigate("/")
-      }}>Landing</button>
-      <button onClick={function(){
-        navigate("/dashboard")
-      }}>Dashboard</button>
-    </div>
-  )
+function Count({count, setCount}){
+  return ( <div>
+    {count}
+    <Buttons count ={count} setCount={setCount}/>
+  </div>)
 }
+function Buttons({count,setCount}){
+  return <div>
+    <button onClick={()=>{
+      setCount(count+1)
+    }}>Increase</button>
+    <button onClick={()=>{
+      setCount(count-1)
+    }}>Decrease</button>
+  </div>
+}
+
 
 export default App
